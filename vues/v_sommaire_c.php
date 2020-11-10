@@ -16,6 +16,9 @@
               <a href="index.php?uc=voirVisiteur&action=listeVisiteurs" title="Liste des visiteurs ">Liste des visiteurs</a>
            </li>
            <li class="smenu">
+              <a href="index.php?uc=Rembourser&action=listaRembourser" title="Liste des visiteurs ">Fiches a rembourser</a>
+           </li>
+           <li class="smenu">
               <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
            </li>
            

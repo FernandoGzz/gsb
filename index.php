@@ -39,6 +39,18 @@ switch($uc){
 	case 'guardar' :{
 		include("controleurs/c_guardar_cambio.php");break; 
 	}
+	case 'listeRembourse' :{
+		include("controleurs/c_listeRembourser.php");break; 
+	}
+	case 'Rembourser' :{
+		include("controleurs/c_table_rembourser.php");break; 
+	}
+	case 'pdf' :{
+		include("vues/v_generar_pdf.php");break; 
+	}
+	case 'pagado' :{
+		include("controleurs/c_pagado.php");break; 
+	}
 }
 
 include("vues/v_pied.php") ;

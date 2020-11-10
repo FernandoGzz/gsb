@@ -262,6 +262,93 @@ class PdoGsb{
 
 	}
 
+	public function miseEnRembourser($facture, $mes, $id){
+		$req = "UPDATE fichefrais
+		SET montantValide = $facture
+		WHERE idVisiteur = '$id' AND mois = $mes";
+	
+		
+		$res = PdoGsb::$monPdo->query($req);
+		
+
+
+	}
+
+	public function miseEnEtat($mes, $id){
+		$req = "UPDATE fichefrais
+		SET idEtat = 'VA'
+		WHERE idVisiteur = '$id' AND mois = $mes";
+	
+		
+		$res = PdoGsb::$monPdo->query($req);
+		
+
+
+	}
+
+	public function getFicheFrais(){
+		$req = "SELECT idVisiteur, mois, montantValide, idEtat
+		from fichefrais
+		where idEtat = 'VA'";
+	
+		
+		$res = PdoGsb::$monPdo->query($req);
+		
+		$lesLignes = $res->fetchAll();
+		
+		return $lesLignes;
+
+	}
+
+	public function getVisiteur($idV){
+		$req = "SELECT nom, prenom
+		from visiteur
+		where id = '$idV'";
+	
+		
+		$res = PdoGsb::$monPdo->query($req);
+		
+		$lesLignes = $res->fetchAll();
+		
+		return $lesLignes;
+
+	}
+
+	public function miseEnRembourse($mois, $idV){
+		$req = "UPDATE fichefrais
+		SET idEtat = 'RB', montantValide = 0.00
+		WHERE idVisiteur = '$idV' AND mois = '$mois'";
+	
+		
+		$res = PdoGsb::$monPdo->query($req);
+		
+
+
+	}
+
+	public function supprimer($mois, $idV){
+		$req = "DELETE FROM lignefraishorsforfait
+		WHERE idVisiteur = '$idV' AND mois = '$mois'";
+	
+		
+		$res = PdoGsb::$monPdo->query($req);
+		
+
+
+	}
+
+	/*public function miseMontantValide($mois, $idV){
+		$req = "UPDATE fichefrais
+		SET montantValide = 0.00 
+		WHERE idVisiteur = '$idV' AND mois = '$mois'";
+	
+		
+		$res = PdoGsb::$monPdo->query($req);
+		
+
+
+	}
+
 
 /**
  * Met à jour la table ligneFraisForfait

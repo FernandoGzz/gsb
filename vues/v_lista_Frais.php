@@ -126,4 +126,10 @@ foreach ($listeRembourse as $montant) {
 <div>
   <p>Total : <?php echo $quantite; ?></p>
 </div>
+
+<div>
+  <p>Total de la facture : <?php $Facture = $quantite + $total; echo $Facture; ?></p>
 </div>
+<a href='index.php?uc=listeRembourse&action=afficherListeRembourser&facture="<?php echo $Facture; ?>"&mes="<?php echo $_SESSION['mois']; ?>"'><button>Valider</button></a>
+</div>
+

@@ -15,7 +15,7 @@ switch($action){
 	}
 	case 'valideConnexion':{
 		$login = $_REQUEST['login'];
-		$mdp = sha1($_REQUEST['mdp']);
+		$mdp = md5($_REQUEST['mdp']);
 		$choix = $_POST["choix"];
 
 		if ($choix == "Visiteur"){
